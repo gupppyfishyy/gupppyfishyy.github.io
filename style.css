@@ -10,7 +10,7 @@ body {
     margin: auto;
 }
 
-/* navigation menu */
+
 nav {
     background: #E5890A;
     margin: 0 auto;
@@ -59,7 +59,7 @@ main {
     width: 200px;
 }
 
-/* Content with vine border */
+
 .content {
     flex: 1;
     padding: 15px;
@@ -67,7 +67,7 @@ main {
     background: #F7D08A;
 }
 
-/* Vine border positioning */
+
 .content::before,
 .content::after {
     content: "";
