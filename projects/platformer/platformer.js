@@ -17,9 +17,9 @@ $(function () {
     }
     // Create walls - do not delete or modify this code
     createPlatform(-50, -50, canvas.width + 100, 50); //top
-    createPlatform(-50, canvas.height - 10, canvas.width + 100, 200); //right
-    createPlatform(-50, -50, 50, canvas.height + 500); //bottom
-    createPlatform(canvas.width, -50, 50, canvas.height + 100);
+    createPlatform(-50, canvas.height - 10, canvas.width + 100, 200); //bottom
+    createPlatform(-50, -50, 50, canvas.height + 500); //left
+    createPlatform(canvas.width, -50, 200, canvas.height + 100); //right
 
     /**
      * Uncomment the drawGrid() function call below to add a "grid" to your platformer game's screen
@@ -28,7 +28,7 @@ $(function () {
      * Comment the function call out to remove the grid
      */
 
-    // drawGrid();
+    drawGrid();
 
     /////////////////////////////////////////////////
     //////////ONLY CHANGE BELOW THIS POINT///////////
@@ -38,7 +38,13 @@ $(function () {
     // Create platforms
     // You must decide the x position, y position, width, and height of the platforms
     // example usage: createPlatform(x,y,width,height)
-
+    createPlatform(100,700,300,600)
+    createPlatform(0,700,300,600)
+    createPlatform(250,700,300,600)
+    createPlatform(100,700,300,600)
+    createPlatform(450,650,200,90)
+  
+    
 
 
     
