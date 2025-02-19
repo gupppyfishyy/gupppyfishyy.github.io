@@ -1,0 +1,116 @@
+/* General styles for the body */
+body {
+  background: #ffeac5;
+  color: #9d5c0d;
+  padding: 10px;
+  font-family: Arial, sans-serif;
+}
+/* Container for all contents to center them and limit width */
+#all-contents {
+  max-width: 1200px;
+  margin: auto;
+}
+/* Styles for the banner image */
+.banner {
+  display: block;
+    max-width: 100%;
+    height: 300px;
+    max-height: 650px;
+    margin: auto 345px auto;
+}
+
+/* Styles for the navigation bar */
+nav {
+  position: relative;
+  top: -20px;
+  background: #e5890a;
+  margin: 0 auto;
+  margin-top: 0px;
+  display: flex;
+  padding: 10px;
+}
+/* Styles for the main heading within the nav */
+h1 {
+  display: flex;
+  align-items: center;
+  color: #fafafa;
+  flex: 1;
+  margin: 0;
+}
+/* Styles for the unordered list in the nav */
+#nav-ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+}
+/* Styles for list items in the nav */
+.nav-li {
+  display: inline-block;
+  padding: 0 10px;
+}
+/* Styles for anchor links in the nav */
+a {
+  text-decoration: none;
+  color: #fafafa;
+}
+/* Main content area styling */
+main {
+  background: #f7d08a;
+  display: flex;
+  position: relative; /* Ensure positioning context for pseudo-elements */
+}
+
+/* Styles for the sidebar */
+.sidebar {
+  margin-right: 25px;
+  padding: 10px;
+}
+/* Styles for images within the sidebar */
+.sidebar-img {
+  width: 200px;
+}
+/* Styles for the main content area */
+.content {
+  flex: 1;
+  padding: 15px;
+  position: relative; /* Position context for the border */
+  background: #f7d08a;
+}
+/* Styles for the interests section */
+#interests {
+  border: 4px solid #9d5c0d;
+  padding: 8px;
+}
+/* Remove default margins for heading elements */
+h2,
+h3 {
+  margin: 0;
+}
+
+/*End of index*/
+
+/* portfolio styles */
+.content h1 {
+  color: black;
+}
+
+#portfolio {
+  list-style-type: none;
+  padding-left: 0;
+}
+
+#portfolio li {
+  background: #fff;
+  padding: 10px;
+  border-radius: 10px;
+  margin-bottom: 10px;
+}
+
+#portfolio li:hover {
+  background: #eee;
+}
+
+#portfolio a {
+  text-decoration: none;
+  color: #454545;
+}
