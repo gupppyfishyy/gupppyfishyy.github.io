@@ -43,12 +43,15 @@ init();
 
 function init() {
   // TODO 4c-2: initialize the snake
-
+snake.body = [];
+makeSnakeSquare(10, 10);
+snake.head = snake.body[0];
   // TODO 4b-2: initialize the apple
 
 
   // TODO 5a: Initialize the interval
 makeApple()
+updateInterval = setInterval(update, 100)
 }
 
 ////////////////////////////////////////////////////////////////////////////////
@@ -200,7 +203,24 @@ function makeApple() {
  * snakeSquare to the snake.body Array and set a new tail.
  */
 function makeSnakeSquare(row, column) {
-  // TODO 4c-1: Fill in this function's code block
+  var snakeSquare = {};
+  snakeSquare.element = $("<div>").addClass("snake").appendTo(board);
+
+ 
+  snakeSquare.row = row;
+  snakeSquare.column = column;
+
+ 
+  repositionSquare(snakeSquare);
+
+  
+  if (snake.body.length === 0) {
+    snakeSquare.element.attr("id", "snake-head");
+  }
+
+  
+  snake.body.push(snakeSquare);
+  snake.tail = snakeSquare;
 }
 
 /* 
@@ -215,7 +235,8 @@ function makeSnakeSquare(row, column) {
     KEY.DOWN = 40
 */
 function handleKeyDown(event) {
-  // TODO 6a: make the handleKeyDown function register which key is pressed
+  activeKey = event.which;
+console.log(activeKey);
   
 }
 
