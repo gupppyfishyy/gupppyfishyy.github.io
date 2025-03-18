@@ -188,13 +188,13 @@ function handleAppleCollision() {
     column++;
   }
   if (snake.tail.direction === "up") {
-    column++;
+    row++;
   }
   if (snake.tail.direction === "right") {
     column--;
   }
   if (snake.tail.direction === "down") {
-    column--;
+    row--;
   }
     
     
