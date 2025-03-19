@@ -101,21 +101,17 @@ function checkForNewDirection(event) {
 
 function moveSnake() {
   for (var i = snake.body.length - 1; i > 0; i--) {
-  var snakeSquare = snake.body[i];
-  var nextSnakeSquare = snake.body[i - 1];
-  var nextRow = nextSnakeSquare.row;
-  var nextColumn = nextSnakeSquare.column;
-  var nextDirection = nextSnakeSquare.direction;
+    var snakeSquare = snake.body[i];
+    var nextSnakeSquare = snake.body[i - 1];
+    var nextRow = nextSnakeSquare.row;
+    var nextColumn = nextSnakeSquare.column;
+    var nextDirection = nextSnakeSquare.direction;
 
-snakeSquare.direction = nextDirection;
-snakeSquare.row = nextRow;
-snakeSquare.column = nextColumn;
-repositionSquare(snakeSquare);
-}
-
-
-
-.
+    snakeSquare.direction = nextDirection;
+    snakeSquare.row = nextRow;
+    snakeSquare.column = nextColumn;
+    repositionSquare(snakeSquare);
+  }
 
   /* 
   TODO 11: Move each part of the snake's body such that it's body follows the head.
@@ -213,25 +209,21 @@ function handleAppleCollision() {
   if (snake.tail.direction === "down") {
     row--;
   }
-    
-    
-  
+
   makeSnakeSquare(row, column);
 }
 
 function hasCollidedWithSnake() {
-  /* 
-  TODO 12: Should return true if the snake's head has collided with any part of the
-  snake's body.
-  
-  HINT: Each part of the snake's body is stored in the snake.body Array. The
-  head and each part of the snake's body also knows its own row and column.
-  
-  */
-
+  for (var i = 1; i < snake.body.length; i++) {
+    if (
+      snake.body[i].row === snake.head.row &&
+      snake.body[i].column === snake.head.column
+    ) {
+      return true;
+    }
+  }
   return false;
 }
-
 function endGame() {
   // stop update function from running
   clearInterval(updateInterval);
@@ -327,6 +319,15 @@ function getRandomAvailablePosition() {
     randomPosition.column = Math.floor(Math.random() * COLUMNS);
     randomPosition.row = Math.floor(Math.random() * ROWS);
     spaceIsAvailable = true;
+    for (let i = 0; i < snake.body.length; i++) {
+      if (
+        randomPosition.column === snake.body[i].column &&
+        randomPosition.row === snake.body[i].row
+      ) {
+        spaceIsAvailable = false;
+        break;
+      }
+    }
 
     /*
     TODO 13: After generating the random position determine if that position is
