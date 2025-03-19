@@ -100,6 +100,23 @@ function checkForNewDirection(event) {
 }
 
 function moveSnake() {
+  for (var i = snake.body.length - 1; i > 0; i--) {
+  var snakeSquare = snake.body[i];
+  var nextSnakeSquare = snake.body[i - 1];
+  var nextRow = nextSnakeSquare.row;
+  var nextColumn = nextSnakeSquare.column;
+  var nextDirection = nextSnakeSquare.direction;
+
+snakeSquare.direction = nextDirection;
+snakeSquare.row = nextRow;
+snakeSquare.column = nextColumn;
+repositionSquare(snakeSquare);
+}
+
+
+
+.
+
   /* 
   TODO 11: Move each part of the snake's body such that it's body follows the head.
   
