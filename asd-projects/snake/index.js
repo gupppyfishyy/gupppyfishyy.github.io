@@ -256,10 +256,40 @@ function makeApple() {
   repositionSquare(apple);
 }
 
-/* Create an HTML element for a snakeSquare using jQuery. Then, given a row and
- * column on the board, position it on the screen. Finally, add the new
- * snakeSquare to the snake.body Array and set a new tail.
- */
+var randomColor1 = `rgb(${Math.floor(Math.random() * 256)},
+${Math.floor(Math.random() * 256)},b
+${Math.floor(Math.random() * 256)})`;
+var randomColor2 = `rgb(${Math.floor(Math.random() * 256)},
+${Math.floor(Math.random() * 256)},
+${Math.floor(Math.random() * 256)})`;
+
+function makeSnakeSquare(row, column) {
+var snakeSquare = {};
+
+snakeSquare.element = $("<div>").addClass("snake").appendTo(board);
+
+snakeSquare.row = row;
+snakeSquare.column = column;
+
+// Random color generator for alternating colors
+
+// Alternate colors: even-indexed body parts get the random color
+if (snake.body.length % 2 === 0) {
+snakeSquare.element.css("background-color", randomColor1);
+} else {
+snakeSquare.element.css("background-color", randomColor2);
+}
+
+repositionSquare(snakeSquare);
+
+if (snake.body.length === 0) {
+snakeSquare.element.attr("id", "snake-head");
+}
+
+snake.body.push(snakeSquare);
+snake.tail = snakeSquare;
+}
+
 function makeSnakeSquare(row, column) {
   var snakeSquare = {};
   snakeSquare.element = $("<div>").addClass("snake").appendTo(board);
