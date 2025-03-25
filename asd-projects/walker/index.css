@@ -1,21 +1,34 @@
 
 body {
-  background-color: darkgreen;
+  background-color: #A4B465;
 }
 
 #board {
   width: 440px;
   height: 440px;
-  border: 1px solid white;
-  background-color: black;
+  border: 10px solid #626F47;
+  background-color: #FEFAE0;
   position: relative;
 }
 
-#gameItem {
-  background-color: teal;
+#walker {
+  background-color: #FFCF50;
   width: 50px;
   height: 50px;
   position: absolute;
-/*   left: 100px; */  /* Uncomment if you want to set a "starting" position */
-/*   top: 100px;  */  /* Uncomment if you want to set a "starting" position */
+  left: 200px;
+   top: 100px;  
+   border-radius: 15px;
+}
+#bottom-image {
+  width: 269px;
+  height:51px;
+  background-image: url('https://en.bloggif.com/tmp/e21d6106f287d8ebb4f565e7da0a57b8/text.gif?1742924721');
+  background-size: cover;
+  background-position: top;
+  background-repeat: no-repeat;
+  position: fixed;
+ bottom: 9%; /* Adjusts how far from the bottom */
+  left: 3%; /* Centers it horizontally */
+  transform: translateX(19%); /* Adjust for perfect centering */
 }

@@ -98,6 +98,39 @@ function checkForNewDirection(event) {
 
   // console.log(snake.head.direction);     // uncomment me!
 }
+var randomColor1 = `rgb(${Math.floor(Math.random() * 256)},
+${Math.floor(Math.random() * 256)},
+${Math.floor(Math.random() * 256)})`;
+var randomColor2 = `rgb(${Math.floor(Math.random() * 256)},
+${Math.floor(Math.random() * 256)},
+${Math.floor(Math.random() * 256)})`;
+
+function makeSnakeSquare(row, column) {
+var snakeSquare = {};
+
+snakeSquare.element = $("<div>").addClass("snake").appendTo(board);
+
+snakeSquare.row = row;
+snakeSquare.column = column;
+
+// Random color generator for alternating colors
+
+// Alternate colors: even-indexed body parts get the random color
+if (snake.body.length % 2 === 0) {
+snakeSquare.element.css("background-color", randomColor1);
+} else {
+snakeSquare.element.css("background-color", randomColor2);
+}
+
+repositionSquare(snakeSquare);
+
+if (snake.body.length === 0) {
+snakeSquare.element.attr("id", "snake-head");
+}
+
+snake.body.push(snakeSquare);
+snake.tail = snakeSquare;
+}
 
 function moveSnake() {
   for (var i = snake.body.length - 1; i > 0; i--) {
@@ -256,20 +289,6 @@ function makeApple() {
   repositionSquare(apple);
 }
 
-var randomColor1 = `rgb(${Math.floor(Math.random() * 256)},
-${Math.floor(Math.random() * 256)},b
-${Math.floor(Math.random() * 256)})`;
-var randomColor2 = `rgb(${Math.floor(Math.random() * 256)},
-${Math.floor(Math.random() * 256)},
-${Math.floor(Math.random() * 256)})`;
-
-function makeSnakeSquare(row, column) {
-var snakeSquare = {};
-
-snakeSquare.element = $("<div>").addClass("snake").appendTo(board);
-
-snakeSquare.row = row;
-snakeSquare.column = column;
 
 // Random color generator for alternating colors
 
@@ -304,22 +323,7 @@ function makeSnakeSquare(row, column) {
   }
 
   snake.body.push(snakeSquare);
-  snake.tail = snakeSquare;
-}
-
-/* 
-  event.which returns the keycode of the key that is pressed when the
-  keydown event occurs
-  
-  The KEY Object creates a map for the Arrow Keys to their keycode:
-
-    KEY.LEFT = 37
-    KEY.UP = 38
-    KEY.RIGHT = 39
-    KEY.DOWN = 40
-*/
-function handleKeyDown(event) {
-  activeKey = event.which;
+ 
   console.log(activeKey);
 }
 
