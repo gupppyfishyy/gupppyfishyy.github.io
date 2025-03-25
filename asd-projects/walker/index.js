@@ -42,23 +42,23 @@ function runProgram(){
   */
   function handleKeyDown(event) {
     if(event.which === KEY.LEFT)
-console.log("Left Pressed");
-  }
-  function handleKeyDown(event) {
+{console.log("Left Pressed")};
+ 
+  
     if (event.which === KEY.UP) {
       console.log("Up pressed");
     }
-  }
-  function handleKeyDown(event) {
+
+  
     if (event.which === KEY.RIGHT) {
       console.log("Right pressed");
     }
-    function handleKeyDown(event) {
+   
       if (event.which === KEY.DOWN) {
         console.log("Down pressed");
       }
     }
-  }
+  
   ////////////////////////////////////////////////////////////////////////////////
   ////////////////////////// HELPER FUNCTIONS ////////////////////////////////////
   ////////////////////////////////////////////////////////////////////////////////
