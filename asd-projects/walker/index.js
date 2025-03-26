@@ -17,6 +17,12 @@ function runProgram(){
     DOWN: 40,
   }
   
+  var walker = {
+    X : 0,
+    Y : 0,
+    Xspeed : 0,
+    Yspeed : 0,
+  };
   // Game Item Objects
 
 
@@ -33,37 +39,43 @@ function runProgram(){
   by calling this function and executing the code inside.
   */
   function newFrame() {
-    
-
+   repositionGameItem()
+   redrawnGameItem()
   }
   
   /* 
   Called in response to events.
   */
   function handleKeyDown(event) {
-    if(event.which === KEY.LEFT)
-{console.log("Left Pressed")};
- 
-  
-    if (event.which === KEY.UP) {
-      console.log("Up pressed");
+    if (event.which === KEY.LEFT) {
+        walker.Xspeed = -5;
     }
 
-  
+    if (event.which === KEY.UP) {
+        walker.Yspeed = -5;
+    }
+
     if (event.which === KEY.RIGHT) {
-      console.log("Right pressed");
+        walker.Xspeed = 5;
     }
-   
-      if (event.which === KEY.DOWN) {
-        console.log("Down pressed");
-      }
+
+    if (event.which === KEY.DOWN) {
+        walker.Yspeed = 5;
     }
+}
   
   ////////////////////////////////////////////////////////////////////////////////
   ////////////////////////// HELPER FUNCTIONS ////////////////////////////////////
   ////////////////////////////////////////////////////////////////////////////////
+function repositionGameItem () {
+  walker.X = walker.X + walker.Xspeed
+  walker.Y= walker.Y + walker.Yspeed
+}
+  function redrawnGameItem () {
+    $("#walker").css("left", walker.X)
+    $("#walker").css("top", walker.Y)
+  }
 
-  
   function endGame() {
     // stop the interval timer
     clearInterval(interval);
