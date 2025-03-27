@@ -84,16 +84,11 @@ function repositionGameItem () {
   walker.X = walker.X + walker.Xspeed
   walker.Y= walker.Y + walker.Yspeed
 }
-  function redrawnGameItem () {
-    $("#walker").css("left", walker.X)
-    $("#walker").css("top", walker.Y)
-  }
 function wallCollision ()
-var bWidth: $("#board").width()
-var bHeight: $("#board").height()
+var bWidth = $('#board').width()
+var bHeight = $('#board').height()
 if (walker.X < 0) {
   walker.X = 0;
-  }
   if (walker.X > bWidth) {
   walker.X = bWidth;
   }
@@ -103,7 +98,12 @@ if (walker.X < 0) {
   if (walker.Y > bHeight) {
   walker.Y = bHeight;
   }
+}
+  function redrawnGameItem () {
+    $("#walker").css("left", walker.X)
+    $("#walker").css("top", walker.Y)
   }
+
   
   function endGame() {
     // stop the interval timer
