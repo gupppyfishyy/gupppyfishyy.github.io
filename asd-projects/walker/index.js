@@ -40,9 +40,9 @@ function runProgram(){
   by calling this function and executing the code inside.
   */
   function newFrame() {
-   repositionGameItem()
-   redrawnGameItem()
-   wallCollision()
+   repositionGameItem();
+   redrawGameItem();
+   wallCollision();
   }
   
   /* 
@@ -84,11 +84,12 @@ function repositionGameItem () {
   walker.X = walker.X + walker.Xspeed
   walker.Y= walker.Y + walker.Yspeed
 }
-function wallCollision ()
-var bWidth = $('#board').width()
-var bHeight = $('#board').height()
-if (walker.X < 0) {
+function wallCollision() {
+  var bWidth = $("#board").width();
+  var bHeight = $("#board").height();
+  if (walker.X < 0) {
   walker.X = 0;
+  }
   if (walker.X > bWidth) {
   walker.X = bWidth;
   }
@@ -98,13 +99,12 @@ if (walker.X < 0) {
   if (walker.Y > bHeight) {
   walker.Y = bHeight;
   }
-}
-  function redrawnGameItem () {
-    $("#walker").css("left", walker.X)
-    $("#walker").css("top", walker.Y)
   }
-
   
+function redrawGameItem() {
+  $("#walker").css("left", walker.X) - 50;
+  $("#walker").css("top", walker.Y) - 50;
+  }
   function endGame() {
     // stop the interval timer
     clearInterval(interval);
